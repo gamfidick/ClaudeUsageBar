@@ -9,9 +9,7 @@ A lightweight, open-source macOS menu bar application that displays your Claude.
 
 ## 📥 Download
 
-**[Download Latest Release](https://github.com/Artzainnn/claudeusagebar/releases)** (DMG Installer - 1.6 MB)
-
-Alternative: [ZIP Archive](https://github.com/Artzainnn/claudeusagebar/releases) (if available)
+**[Download Latest Release](https://github.com/Artzainnn/claudeusagebar/releases)** (DMG Installer - 1.83 MB)
 
 ## ✨ Features
 
