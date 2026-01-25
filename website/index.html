@@ -6,7 +6,23 @@
   <meta name="theme-color" content="#0d0d0f">
   <meta name="color-scheme" content="dark">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>ClaudeUsageBar – Track Your Claude Usage</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="canonical" href="https://claudeusagebar.com/">
+  <title>ClaudeUsageBar – Free Claude Usage Tracker for macOS</title>
+  <meta name="description" content="Free, open-source macOS menu bar app that displays your Claude AI usage percentage. Get notifications before hitting your limit. Lightweight, private, and native.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claudeusagebar.com/">
+  <meta property="og:title" content="ClaudeUsageBar – Free Claude Usage Tracker for macOS">
+  <meta property="og:description" content="Free, open-source macOS menu bar app that displays your Claude AI usage percentage. Get notifications before hitting your limit. Lightweight, private, and native.">
+  <meta property="og:image" content="https://claudeusagebar.com/og-image.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://claudeusagebar.com/">
+  <meta name="twitter:title" content="ClaudeUsageBar – Free Claude Usage Tracker for macOS">
+  <meta name="twitter:description" content="Free, open-source macOS menu bar app that displays your Claude AI usage percentage. Get notifications before hitting your limit. Lightweight, private, and native.">
+  <meta name="twitter:image" content="https://claudeusagebar.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -164,7 +180,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 120px 24px 80px;
+      padding: 80px 24px 80px;
       text-align: center;
     }
 
@@ -179,7 +195,7 @@
       font-size: 13px;
       font-weight: 500;
       color: var(--claude-orange-light);
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       animation: fadeInUp 0.6s ease-out;
     }
 
@@ -254,6 +270,14 @@
       animation: fadeInUp 0.6s ease-out 0.4s both;
     }
 
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -278,6 +302,33 @@
     .download-btn svg {
       width: 22px;
       height: 22px;
+    }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 28px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .github-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--text-muted);
+      transform: translateY(-2px);
+    }
+
+    .github-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
     }
 
     .download-meta {
@@ -379,59 +430,92 @@
       height: 100%;
     }
 
-    .usage-dropdown {
-      background: var(--bg-dark);
+    .usage-popup {
+      background: linear-gradient(180deg, #1a1a1c 0%, #141416 100%);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      min-width: 280px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      padding: 16px;
+      min-width: 320px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
 
-    .usage-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .usage-title {
+    .usage-popup-title {
       font-weight: 600;
-      font-size: 15px;
-    }
-
-    .usage-percent {
-      font-family: 'JetBrains Mono', monospace;
       font-size: 14px;
-      color: var(--claude-orange);
+      margin-bottom: 16px;
+      color: var(--text-primary);
     }
 
-    .usage-bar-container {
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
+    .usage-section {
       margin-bottom: 16px;
     }
 
-    .usage-bar {
-      height: 100%;
-      width: 67%;
-      background: linear-gradient(90deg, var(--claude-orange) 0%, var(--claude-orange-light) 100%);
-      border-radius: 4px;
-      animation: fillBar 1.5s ease-out;
+    .usage-section:last-of-type {
+      margin-bottom: 12px;
     }
 
-    @keyframes fillBar {
-      from { width: 0; }
-      to { width: 67%; }
-    }
-
-    .usage-stats {
+    .usage-section-header {
       display: flex;
       justify-content: space-between;
-      font-size: 13px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .usage-section-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .usage-section-reset {
+      font-size: 11px;
       color: var(--text-muted);
+    }
+
+    .usage-progress {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    .usage-progress-bar {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 1s ease-out;
+    }
+
+    .usage-progress-bar.green {
+      background: #22c55e;
+    }
+
+    .usage-progress-bar.orange {
+      background: #f59e0b;
+    }
+
+    .usage-section-percent {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .usage-popup-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .usage-popup-refresh {
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .usage-popup-refresh:hover {
+      color: var(--text-primary);
     }
 
     /* Features */
@@ -607,14 +691,168 @@
       fill: currentColor;
     }
 
+    .coffee-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--claude-orange);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 20px;
+      background: rgba(218, 119, 86, 0.1);
+      border: 1px solid rgba(218, 119, 86, 0.2);
+      border-radius: 10px;
+      transition: all 0.3s;
+    }
+
+    .coffee-link:hover {
+      background: rgba(218, 119, 86, 0.15);
+      border-color: rgba(218, 119, 86, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* FAQ Section */
+    .faq {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .faq-header h2 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .faq-header p {
+      color: var(--text-secondary);
+      font-size: 16px;
+    }
+
+    .faq-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(218, 119, 86, 0.2);
+    }
+
+    .faq-question {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .faq-answer {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .faq-answer a {
+      color: var(--claude-orange);
+      text-decoration: none;
+    }
+
+    .faq-answer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--text-primary);
+    }
+
+    .mobile-menu-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 69px;
+      left: 0;
+      right: 0;
+      background: rgba(13, 13, 15, 0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--text-primary);
+    }
+
+    .mobile-menu .mobile-cta {
+      background: var(--claude-orange);
+      color: white;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-align: center;
+      border-bottom: none;
+      margin-top: 8px;
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
 
+      .mobile-menu-toggle {
+        display: block;
+      }
+
       .hero {
-        padding: 100px 20px 60px;
+        padding: 90px 20px 60px;
       }
 
       .hero-icon {
@@ -649,6 +887,12 @@
       }
     }
   </style>
+  <script
+    defer
+    data-website-id="dfid_HMM2pp9guqaCpR3KioH9l"
+    data-domain="claudeusagebar.com"
+    src="https://datafa.st/js/script.js">
+  </script>
 </head>
 <body style="background-color: #0d0d0f;">
   <div class="ambient"></div>
@@ -665,11 +909,25 @@
       </a>
       <div class="nav-links">
         <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
         <a href="https://github.com/Artzainnn/ClaudeUsageBar" target="_blank">GitHub</a>
         <a href="https://github.com/Artzainnn/ClaudeUsageBar/releases/latest/download/ClaudeUsageBar-Installer.dmg" class="nav-cta">Download</a>
       </div>
+      <button class="mobile-menu-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('active')">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
     </div>
   </nav>
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#features" onclick="document.getElementById('mobileMenu').classList.remove('active')">Features</a>
+    <a href="#faq" onclick="document.getElementById('mobileMenu').classList.remove('active')">FAQ</a>
+    <a href="https://github.com/Artzainnn/ClaudeUsageBar" target="_blank">GitHub</a>
+    <a href="https://github.com/Artzainnn/ClaudeUsageBar/releases/latest/download/ClaudeUsageBar-Installer.dmg" class="mobile-cta">Download for macOS</a>
+  </div>
 
   <section class="hero">
     <div class="hero-badge">
@@ -691,14 +949,22 @@
     <p class="hero-subtitle">A minimal macOS menu bar app that shows your Claude usage percentage at a glance. Never hit your limit unexpectedly again.</p>
 
     <div class="hero-cta">
-      <a href="https://github.com/Artzainnn/ClaudeUsageBar/releases/latest/download/ClaudeUsageBar-Installer.dmg" class="download-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        Download for macOS
-      </a>
+      <div class="hero-buttons">
+        <a href="https://github.com/Artzainnn/ClaudeUsageBar/releases/latest/download/ClaudeUsageBar-Installer.dmg" class="download-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download for macOS
+        </a>
+        <a href="https://github.com/Artzainnn/ClaudeUsageBar" target="_blank" class="github-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          View on GitHub
+        </a>
+      </div>
       <div class="download-meta">
         <span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -716,10 +982,11 @@
         </span>
         <span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
+            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+            <line x1="16" y1="8" x2="2" y2="22"/>
+            <line x1="17.5" y1="15" x2="9" y2="15"/>
           </svg>
-          v1.0.0
+          Lightweight
         </span>
       </div>
     </div>
@@ -748,17 +1015,34 @@
               </span>
               <span class="menu-item" style="color: var(--claude-orange);">67%</span>
             </div>
-            <div class="usage-dropdown">
-              <div class="usage-header">
-                <span class="usage-title">Claude Usage</span>
-                <span class="usage-percent">67%</span>
+            <div class="usage-popup">
+              <div class="usage-popup-title">Claude Usage</div>
+
+              <div class="usage-section">
+                <div class="usage-section-header">
+                  <span class="usage-section-label">Session (5 hour)</span>
+                  <span class="usage-section-reset">Resets at 3:45 PM</span>
+                </div>
+                <div class="usage-progress">
+                  <div class="usage-progress-bar green" style="width: 67%;"></div>
+                </div>
+                <span class="usage-section-percent">67% used</span>
               </div>
-              <div class="usage-bar-container">
-                <div class="usage-bar"></div>
+
+              <div class="usage-section">
+                <div class="usage-section-header">
+                  <span class="usage-section-label">Weekly (7 day)</span>
+                  <span class="usage-section-reset">Resets on 31 Jan 2026</span>
+                </div>
+                <div class="usage-progress">
+                  <div class="usage-progress-bar orange" style="width: 82%;"></div>
+                </div>
+                <span class="usage-section-percent">82% used</span>
               </div>
-              <div class="usage-stats">
-                <span>Resets in 4h 23m</span>
-                <span>Pro Plan</span>
+
+              <div class="usage-popup-footer">
+                <span>Last updated: 11:22 AM</span>
+                <span class="usage-popup-refresh">Refresh</span>
               </div>
             </div>
           </div>
@@ -784,7 +1068,7 @@
           </svg>
         </div>
         <h3>Menu Bar Native</h3>
-        <p>Lives quietly in your menu bar. One click to see your current usage – no windows, no clutter.</p>
+        <p>Lives quietly in your menu bar. One click to see your current usage. Use the Cmd+U shortcut to open from anywhere.</p>
       </div>
 
       <div class="feature-card">
@@ -795,7 +1079,7 @@
           </svg>
         </div>
         <h3>Smart Notifications</h3>
-        <p>Get notified when you're approaching your limit. Set custom thresholds at 50%, 75%, or 90%.</p>
+        <p>Get notified when you're approaching your limit at 25%, 50%, 75%, and 90% usage thresholds.</p>
       </div>
 
       <div class="feature-card">
@@ -839,19 +1123,62 @@
           </svg>
         </div>
         <h3>Lightweight</h3>
-        <p>Under 5MB. Minimal CPU and memory footprint. Built native for Apple Silicon and Intel.</p>
+        <p>Under 5MB. Minimal CPU and memory footprint. Built native for Apple Silicon and Intel Macs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="faq-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know</p>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-question">How does ClaudeUsageBar get my usage data?</div>
+        <div class="faq-answer">ClaudeUsageBar uses your session cookie from claude.ai to fetch your usage data directly from Anthropic's API. Your cookie is stored locally on your machine and is never sent anywhere else.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is my data safe?</div>
+        <div class="faq-answer">Yes. ClaudeUsageBar is fully open source, so you can inspect every line of code. Your session cookie and usage data never leave your computer. There's no analytics, no telemetry, and no data collection of any kind.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I get my session cookie?</div>
+        <div class="faq-answer">Go to <a href="https://claude.ai" target="_blank">claude.ai</a>, open Developer Tools (Cmd+Option+I), go to the Network tab, refresh the page, click any request, and copy the full "Cookie" value from the Request Headers.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Why do I need to grant Accessibility permissions?</div>
+        <div class="faq-answer">Accessibility permissions are only needed if you want to use the Cmd+U keyboard shortcut to open the popup from anywhere. The app works fine without it – you just won't have the global shortcut.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Does it work with Claude Free and Pro plans?</div>
+        <div class="faq-answer">Yes! ClaudeUsageBar works with both Free and Pro plans. Pro users will also see their weekly Sonnet usage if available.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">The app shows "Session cookie not set" – what do I do?</div>
+        <div class="faq-answer">Click on the menu bar icon, then click "Set Session Cookie" and paste your full cookie string from claude.ai. Make sure you're copying the entire cookie value, not just the sessionKey part.</div>
       </div>
     </div>
   </section>
 
   <section class="creator">
     <div class="creator-content">
-      <span class="creator-label">Made by</span>
+      <span class="creator-label">Made with love by</span>
       <a href="https://x.com/maximemb_?s=21&t=38Tp8cgg5LrrdHz7FGdtzQ" target="_blank" class="creator-link">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
         Maxime B.
+      </a>
+      <a href="https://donate.stripe.com/3cIcN5b5H7Q8ay8bIDfIs02" target="_blank" class="coffee-link">
+        <span>☕</span>
+        Buy Dev a Coffee
       </a>
     </div>
   </section>
